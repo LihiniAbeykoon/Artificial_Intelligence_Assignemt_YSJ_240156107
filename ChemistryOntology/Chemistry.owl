@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.owl-ontologies.com/OntologyChemistry.owl#"
+     xml:base="http://www.owl-ontologies.com/OntologyChemistry.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:chem="http://www.owl-ontologies.com/OntologyChemistry.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+    <owl:Ontology rdf:about="http://www.owl-ontologies.com/OntologyChemistry.owl"/>
+
+    <!-- Classes -->
+    <owl:Class rdf:about="#ChemistryTopic"/>
+    <owl:Class rdf:about="#Concept"/>
+    <owl:Class rdf:about="#Example"/>
+
+    <!-- Properties -->
+    <owl:ObjectProperty rdf:about="#hasConcept">
+        <rdfs:domain rdf:resource="#ChemistryTopic"/>
+        <rdfs:range rdf:resource="#Concept"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#hasExample">
+        <rdfs:domain rdf:resource="#Concept"/>
+        <rdfs:range rdf:resource="#Example"/>
+    </owl:ObjectProperty>
+
+    <owl:DatatypeProperty rdf:about="#hasAnswer">
+        <rdfs:domain rdf:resource="#Example"/>
+        <rdfs:range rdf:resource="xsd:string"/>
+    </owl:DatatypeProperty>
+
+    <!-- Chemistry Topics -->
+
+    <!-- Acids and Bases -->
+    <ChemistryTopic rdf:about="#AcidsAndBases">
+        <hasConcept rdf:resource="#pHConcept"/>
+    </ChemistryTopic>
+
+    <Concept rdf:about="#pHConcept">
+        <rdfs:label>Understanding pH Levels</rdfs:label>
+        <hasExample rdf:resource="#pHExample1"/>
+    </Concept>
+
+    <Example rdf:about="#pHExample1">
+        <rdfs:label>Calculate the pH of a solution with H+ concentration of 1e-3 mol/L</rdfs:label>
+        <hasAnswer>pH = 3</hasAnswer>
+    </Example>
+
+    <!-- Periodic Table -->
+    <ChemistryTopic rdf:about="#PeriodicTable">
+        <hasConcept rdf:resource="#ElementGroups"/>
+    </ChemistryTopic>
+
+    <Concept rdf:about="#ElementGroups">
+        <rdfs:label>Understanding Element Groups</rdfs:label>
+        <hasExample rdf:resource="#GroupExample1"/>
+    </Concept>
+
+    <Example rdf:about="#GroupExample1">
+        <rdfs:label>Identify group and period of Carbon (C) in the periodic table.</rdfs:label>
+        <hasAnswer>Group 14, Period 2</hasAnswer>
+    </Example>
+
+    <!-- Chemical Reactions -->
+    <ChemistryTopic rdf:about="#ChemicalReactions">
+        <hasConcept rdf:resource="#ReactionTypes"/>
+    </ChemistryTopic>
+
+    <Concept rdf:about="#ReactionTypes">
+        <rdfs:label>Types of Chemical Reactions</rdfs:label>
+        <hasExample rdf:resource="#ReactionExample1"/>
+    </Concept>
+
+    <Example rdf:about="#ReactionExample1">
+        <rdfs:label>What type of reaction is: 2H2 + O2 → 2H2O?</rdfs:label>
+        <hasAnswer>Combination Reaction</hasAnswer>
+    </Example>
+
+</rdf:RDF>
